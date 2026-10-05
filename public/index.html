@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pixel Plaza</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="login" class="modal">
+    <div class="login-card">
+      <div class="logo">✦ PIXEL PLAZA</div>
+      <h1>Enter the plaza</h1>
+      <p>Pick a name. Each name can only be used by one person at a time.</p>
+      <form id="nameForm">
+        <input id="nameInput" maxlength="18" autocomplete="off" placeholder="Your name" autofocus>
+        <button>Join the room</button>
+      </form>
+      <div id="nameError" class="error"></div>
+    </div>
+  </div>
+
+  <main class="app">
+    <header>
+      <div>
+        <div class="brand">✦ PIXEL PLAZA</div>
+        <div class="subtitle">A tiny online world</div>
+      </div>
+      <div class="status"><span id="statusDot"></span><span id="statusText">Connecting…</span></div>
+    </header>
+
+    <section class="layout">
+      <div class="game-wrap">
+        <div id="world" class="world" tabindex="0" aria-label="Pixel Plaza game world">
+          <div class="wall"></div>
+          <div class="floor"></div>
+          <div class="window w1"></div>
+          <div class="window w2"></div>
+          <div class="poster">WELCOME<br><small>TO THE PLAZA</small></div>
+          <div class="table t1"><span></span><i></i></div>
+          <div class="table t2"><span></span><i></i></div>
+          <div id="players"></div>
+        </div>
+        <div class="controls">
+          <div class="keys"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></div>
+          <span>or arrow keys</span>
+          <div class="touch">
+            <button data-key="up">▲</button>
+            <div><button data-key="left">◀</button><button data-key="down">▼</button><button data-key="right">▶</button></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="side">
+        <section class="panel">
+          <h2>🌐 Online <span id="onlineCount">0</span></h2>
+          <div id="onlineList" class="online-list"></div>
+        </section>
+
+        <section class="panel chat-panel">
+          <h2 id="chatTitle">💬 Global chat</h2>
+          <div id="messages" class="messages"></div>
+          <form id="messageForm" class="message-form">
+            <input id="messageInput" maxlength="300" placeholder="Say something…">
+            <button>Send</button>
+          </form>
+          <button id="globalButton" class="small-button hidden">← Back to global chat</button>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <script src="/config.js"></script>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
