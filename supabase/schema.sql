@@ -127,14 +127,16 @@ create or replace function public.release_username(
   requested_client_id uuid
 )
 returns boolean
-language sql
+language plpgsql
 security definer
 set search_path = public
 as $$
+begin
   delete from public.usernames
   where username = lower(trim(requested_username))
     and client_id = requested_client_id;
-  select found;
+  return found;
+end;
 $$;
 
 revoke all on function public.release_username(text, uuid) from public;
